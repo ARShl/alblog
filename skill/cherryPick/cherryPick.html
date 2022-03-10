@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>git的回退以及合并什么的 | al的前端小屋</title>
+    <meta name="generator" content="VuePress 1.9.7">
+    <link rel="icon" href="/alblog/icon.jpg">
+    <meta name="description" content="">
+    
+    <link rel="preload" href="/alblog/assets/css/0.styles.be855775.css" as="style"><link rel="preload" href="/alblog/assets/js/app.36bba37f.js" as="script"><link rel="preload" href="/alblog/assets/js/2.1981255e.js" as="script"><link rel="preload" href="/alblog/assets/js/25.cdb70aa5.js" as="script"><link rel="prefetch" href="/alblog/assets/js/10.1750364b.js"><link rel="prefetch" href="/alblog/assets/js/11.66098fb9.js"><link rel="prefetch" href="/alblog/assets/js/12.a68a1bf5.js"><link rel="prefetch" href="/alblog/assets/js/13.7fdc6d80.js"><link rel="prefetch" href="/alblog/assets/js/14.ba25ed56.js"><link rel="prefetch" href="/alblog/assets/js/15.f1e32dc7.js"><link rel="prefetch" href="/alblog/assets/js/16.178fa3e4.js"><link rel="prefetch" href="/alblog/assets/js/17.fc46bb5f.js"><link rel="prefetch" href="/alblog/assets/js/18.64961b78.js"><link rel="prefetch" href="/alblog/assets/js/19.e37caca8.js"><link rel="prefetch" href="/alblog/assets/js/20.e9ea07c6.js"><link rel="prefetch" href="/alblog/assets/js/21.97579ca9.js"><link rel="prefetch" href="/alblog/assets/js/22.e97fcf2c.js"><link rel="prefetch" href="/alblog/assets/js/23.24deca24.js"><link rel="prefetch" href="/alblog/assets/js/24.368b0471.js"><link rel="prefetch" href="/alblog/assets/js/26.b2118937.js"><link rel="prefetch" href="/alblog/assets/js/27.f02f17ab.js"><link rel="prefetch" href="/alblog/assets/js/28.0f809331.js"><link rel="prefetch" href="/alblog/assets/js/3.5235b354.js"><link rel="prefetch" href="/alblog/assets/js/4.cc49d069.js"><link rel="prefetch" href="/alblog/assets/js/5.dd69ce73.js"><link rel="prefetch" href="/alblog/assets/js/6.6b7579b7.js"><link rel="prefetch" href="/alblog/assets/js/7.52a35d2d.js"><link rel="prefetch" href="/alblog/assets/js/8.a9cb69c9.js"><link rel="prefetch" href="/alblog/assets/js/9.1e9d9184.js">
+    <link rel="stylesheet" href="/alblog/assets/css/0.styles.be855775.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/alblog/" class="home-link router-link-active"><!----> <span class="site-name">al的前端小屋</span></a> <div class="links"><!----> <nav class="nav-links can-hide"><div class="nav-item"><a href="/alblog/" class="nav-link">
+  Home
+</a></div><div class="nav-item"><a href="/alblog/read/" class="nav-link">
+  读书
+</a></div><div class="nav-item"><a href="/alblog/algorithm/" class="nav-link">
+  算法
+</a></div><div class="nav-item"><a href="/alblog/skill/" class="nav-link router-link-active">
+  技术
+</a></div><div class="nav-item"><a href="/alblog/vue/" class="nav-link">
+  Vue.js
+</a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/alblog/" class="nav-link">
+  Home
+</a></div><div class="nav-item"><a href="/alblog/read/" class="nav-link">
+  读书
+</a></div><div class="nav-item"><a href="/alblog/algorithm/" class="nav-link">
+  算法
+</a></div><div class="nav-item"><a href="/alblog/skill/" class="nav-link router-link-active">
+  技术
+</a></div><div class="nav-item"><a href="/alblog/vue/" class="nav-link">
+  Vue.js
+</a></div> <!----></nav>  <ul class="sidebar-links"><li><a href="/alblog/skill/cherryPick/cherryPick.html" aria-current="page" class="active sidebar-link">git的回退以及合并什么的</a></li><li><a href="/alblog/skill/createVSPlugin/createVSPlugin.html" class="sidebar-link">自己搭建一个vscode插件</a></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="git的回退以及合并什么的"><a href="#git的回退以及合并什么的" class="header-anchor">#</a> git的回退以及合并什么的</h1> <img src="/alblog/assets/img/1.5db18cc1.jpeg" width="100%"> <p>  有时候不小心合并了别的分支中的commit.我们需要回退某些提交记录。可以通过reset来操作，reset 会回退到指定commit。这种方式会删除记录，我们最好使用revert命令来操作</p> <div class="language-javascript extra-class"><pre class="language-javascript"><code>git revert commit_a <span class="token comment">// 项目中去除commit_a</span>
+git revert commit_a commit_b <span class="token comment">// 项目中去除commit_a commit_b</span>
+git revert commit_a<span class="token operator">^</span><span class="token punctuation">.</span><span class="token punctuation">.</span>commit_z <span class="token comment">//项目中去除commit_a到commit_z之间的提交记录</span>
+</code></pre></div><p>  想将commit_a重新合并进项目，我们可以使用cherry-pick,cherry-pick也可以用来合并其他分支的commit记录。他的写法与revert类似。</p> <div class="language-javascript extra-class"><pre class="language-javascript"><code>git cherry<span class="token operator">-</span>pick commit_a <span class="token comment">// 项目中合并commit_a</span>
+git cherry<span class="token operator">-</span>pick commit_a commit_b <span class="token comment">// 项目中合并commit_a commit_b</span>
+git cherry<span class="token operator">-</span>pick commit_a<span class="token operator">^</span><span class="token punctuation">.</span><span class="token punctuation">.</span>commit_z <span class="token comment">//项目中合并commit_a到commit_z之间的提交记录</span>
+</code></pre></div><p>  删除分支的写法，git branch -d testA.删除线上分支的写法git push origin --delete testA.</p> <p>  上面的图真不错，很有家庭的气息。加油！</p></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><!----> <span class="next"><a href="/alblog/skill/createVSPlugin/createVSPlugin.html">
+        自己搭建一个vscode插件
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/alblog/assets/js/app.36bba37f.js" defer></script><script src="/alblog/assets/js/2.1981255e.js" defer></script><script src="/alblog/assets/js/25.cdb70aa5.js" defer></script>
+  </body>
+</html>
