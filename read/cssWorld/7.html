@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>深入解析 Css 7 | al的前端小屋</title>
+    <meta name="generator" content="VuePress 1.9.7">
+    <link rel="icon" href="/alblog/icon.jpg">
+    <meta name="description" content="">
+    
+    <link rel="preload" href="/alblog/assets/css/0.styles.d9177179.css" as="style"><link rel="preload" href="/alblog/assets/js/app.7e831839.js" as="script"><link rel="preload" href="/alblog/assets/js/2.1ce74a08.js" as="script"><link rel="preload" href="/alblog/assets/js/32.15d17a4e.js" as="script"><link rel="prefetch" href="/alblog/assets/js/10.e3598105.js"><link rel="prefetch" href="/alblog/assets/js/11.8047fded.js"><link rel="prefetch" href="/alblog/assets/js/12.69a40e74.js"><link rel="prefetch" href="/alblog/assets/js/13.65025d60.js"><link rel="prefetch" href="/alblog/assets/js/14.1c79ee04.js"><link rel="prefetch" href="/alblog/assets/js/15.3198379c.js"><link rel="prefetch" href="/alblog/assets/js/16.04d530db.js"><link rel="prefetch" href="/alblog/assets/js/17.fbb6675f.js"><link rel="prefetch" href="/alblog/assets/js/18.eb4b813b.js"><link rel="prefetch" href="/alblog/assets/js/19.fb3e37e7.js"><link rel="prefetch" href="/alblog/assets/js/20.dad0eeab.js"><link rel="prefetch" href="/alblog/assets/js/21.ba15dea1.js"><link rel="prefetch" href="/alblog/assets/js/22.f9a72a1f.js"><link rel="prefetch" href="/alblog/assets/js/23.2cf769de.js"><link rel="prefetch" href="/alblog/assets/js/24.3ea9698c.js"><link rel="prefetch" href="/alblog/assets/js/25.746c64aa.js"><link rel="prefetch" href="/alblog/assets/js/26.64370403.js"><link rel="prefetch" href="/alblog/assets/js/27.869301f7.js"><link rel="prefetch" href="/alblog/assets/js/28.00546f43.js"><link rel="prefetch" href="/alblog/assets/js/29.aa6c5bcd.js"><link rel="prefetch" href="/alblog/assets/js/3.6913fc6d.js"><link rel="prefetch" href="/alblog/assets/js/30.a4c348a0.js"><link rel="prefetch" href="/alblog/assets/js/31.eb3208aa.js"><link rel="prefetch" href="/alblog/assets/js/33.b3e6db8d.js"><link rel="prefetch" href="/alblog/assets/js/34.b3de097d.js"><link rel="prefetch" href="/alblog/assets/js/35.9279da8f.js"><link rel="prefetch" href="/alblog/assets/js/36.4f43179d.js"><link rel="prefetch" href="/alblog/assets/js/37.36725b7c.js"><link rel="prefetch" href="/alblog/assets/js/38.cb10547d.js"><link rel="prefetch" href="/alblog/assets/js/39.59ad40d7.js"><link rel="prefetch" href="/alblog/assets/js/4.97db876e.js"><link rel="prefetch" href="/alblog/assets/js/40.bc33c6b5.js"><link rel="prefetch" href="/alblog/assets/js/41.01317a60.js"><link rel="prefetch" href="/alblog/assets/js/42.b0264377.js"><link rel="prefetch" href="/alblog/assets/js/43.73fd63e7.js"><link rel="prefetch" href="/alblog/assets/js/44.70ff9d54.js"><link rel="prefetch" href="/alblog/assets/js/45.e4be6215.js"><link rel="prefetch" href="/alblog/assets/js/46.af8897d8.js"><link rel="prefetch" href="/alblog/assets/js/47.1ef1c9c5.js"><link rel="prefetch" href="/alblog/assets/js/48.dcb7fc4d.js"><link rel="prefetch" href="/alblog/assets/js/49.71e96296.js"><link rel="prefetch" href="/alblog/assets/js/5.6095a2c3.js"><link rel="prefetch" href="/alblog/assets/js/50.13c2ac52.js"><link rel="prefetch" href="/alblog/assets/js/51.dc87b766.js"><link rel="prefetch" href="/alblog/assets/js/52.8265510a.js"><link rel="prefetch" href="/alblog/assets/js/53.fac6ae5c.js"><link rel="prefetch" href="/alblog/assets/js/54.ebf83740.js"><link rel="prefetch" href="/alblog/assets/js/55.f5a43537.js"><link rel="prefetch" href="/alblog/assets/js/56.446eb3af.js"><link rel="prefetch" href="/alblog/assets/js/57.019fdf1f.js"><link rel="prefetch" href="/alblog/assets/js/58.6cfe04db.js"><link rel="prefetch" href="/alblog/assets/js/59.2bfcba9a.js"><link rel="prefetch" href="/alblog/assets/js/6.c4c05444.js"><link rel="prefetch" href="/alblog/assets/js/60.c6205454.js"><link rel="prefetch" href="/alblog/assets/js/61.c213de32.js"><link rel="prefetch" href="/alblog/assets/js/62.d124f37f.js"><link rel="prefetch" href="/alblog/assets/js/63.7278511f.js"><link rel="prefetch" href="/alblog/assets/js/64.f9f41eda.js"><link rel="prefetch" href="/alblog/assets/js/65.81d9ae86.js"><link rel="prefetch" href="/alblog/assets/js/66.f01f18d2.js"><link rel="prefetch" href="/alblog/assets/js/67.b8c58a01.js"><link rel="prefetch" href="/alblog/assets/js/68.c2e6df1e.js"><link rel="prefetch" href="/alblog/assets/js/69.161988b8.js"><link rel="prefetch" href="/alblog/assets/js/7.407ec2e0.js"><link rel="prefetch" href="/alblog/assets/js/70.bbd4cae7.js"><link rel="prefetch" href="/alblog/assets/js/71.cb5d34a0.js"><link rel="prefetch" href="/alblog/assets/js/8.6f1e3288.js"><link rel="prefetch" href="/alblog/assets/js/9.838d703c.js">
+    <link rel="stylesheet" href="/alblog/assets/css/0.styles.d9177179.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/alblog/" class="home-link router-link-active"><!----> <span class="site-name">al的前端小屋</span></a> <div class="links"><!----> <nav class="nav-links can-hide"><div class="nav-item"><a href="/alblog/" class="nav-link">
+  Home
+</a></div><div class="nav-item"><a href="/alblog/read/" class="nav-link router-link-active">
+  读书
+</a></div><div class="nav-item"><a href="/alblog/algorithm/" class="nav-link">
+  算法
+</a></div><div class="nav-item"><a href="/alblog/skill/" class="nav-link">
+  技术
+</a></div><div class="nav-item"><a href="/alblog/vue/" class="nav-link">
+  Vue.js
+</a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/alblog/" class="nav-link">
+  Home
+</a></div><div class="nav-item"><a href="/alblog/read/" class="nav-link router-link-active">
+  读书
+</a></div><div class="nav-item"><a href="/alblog/algorithm/" class="nav-link">
+  算法
+</a></div><div class="nav-item"><a href="/alblog/skill/" class="nav-link">
+  技术
+</a></div><div class="nav-item"><a href="/alblog/vue/" class="nav-link">
+  Vue.js
+</a></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>《js设计模式与开发实践》</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/alblog/read/designMode/5.html" class="sidebar-link">js设计模式与开发实践5</a></li><li><a href="/alblog/read/designMode/4.html" class="sidebar-link">js设计模式与开发实践4</a></li><li><a href="/alblog/read/designMode/3.html" class="sidebar-link">js设计模式与开发实践3</a></li><li><a href="/alblog/read/designMode/2.html" class="sidebar-link">js设计模式与开发实践2</a></li><li><a href="/alblog/read/designMode/1.html" class="sidebar-link">js设计模式与开发实践1</a></li></ul></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>《写给大家看的设计书》</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>《你不知道的JavaScript》(中)</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>《你不知道的JavaScript》(上)</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>《Javascript悟道》</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>《程序员修炼之道》</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>《程序员的 38 堂成长课》</span> <span class="arrow right"></span></p> <!----></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="深入解析-css-7"><a href="#深入解析-css-7" class="header-anchor">#</a> 深入解析 Css 7</h1> <img src="/alblog/assets/img/1.8452df02.jpeg"> <hr> <p>  前面讲了几种控制网页布局的方式，flex,gird 和 float。这下我们初略讲下 position.这个我日常中用到的已经挺多了。定位和其他控制文档流的行为不同。它将元素彻底从文档流中移走，它允许你将元素放在屏幕的任意位置。还可以将一个元素放在另一个元素的前面或后面，彼此重叠。</p> <p>  浏览器将 html 解析为 dom 的同时还创建了另一个树形结构，叫做渲染树。它代表了每个元素的视觉样式和位置。同时还决定浏览器绘制元素的顺序。顺序很重要，因为如果元素刚好重叠，后绘制的元素就会出现在先绘制的元素前面。通常情况下。元素在 html 里出现的顺序决定了绘制的顺序。定位元素时，这种行为会改变。浏览器会先绘制所有非定位的元素，然后绘制定位元素。</p> <p>  默认情况下，所有的定位元素会出现在非定位元素前面。z-index 属性的值可以是任意整数正负都行。拥有较高 z-index 的元素出现在拥有较低 z-index 的元素前面。拥有负数 z-index 的元素会出现在静态元素后面。使用 z-index 是解决网页叠层问题的第二个方法。z-index 的行为很好理解，但是使用它时要注意两个小陷阱。第一，z-index 只在定位元素上生效，不能用它控制静态元素。第二，给一个定位元素加上 z-index 可以创建层叠上下文。</p> <p>  一个层叠上下文包含一个元素或者由浏览器一起绘制的一组元素。其中一个元素会作为层叠上下文的根，比如给一个定位元素加上 z-index 的时候，它就变成了一个新的层叠上下文的根。所有后代元素就是这个层叠上下文的一部分。将层叠上下文里所有元素一起绘制会造成严重的后果：层叠上下文之外的元素无法放在层叠上下文内的两个元素之间。举个例子：</p> <div class="language-html extra-class"><pre class="language-html"><code><span class="token doctype"><span class="token punctuation">&lt;!</span><span class="token doctype-tag">DOCTYPE</span> <span class="token name">html</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>html</span> <span class="token attr-name">lang</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>cn<span class="token punctuation">&quot;</span></span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>has-bottombar<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>head</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">http-equiv</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>Content-Type<span class="token punctuation">&quot;</span></span> <span class="token attr-name">content</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>text/html; charset=UTF-8<span class="token punctuation">&quot;</span></span> <span class="token punctuation">/&gt;</span></span>
+
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span>
+      <span class="token attr-name">content</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0<span class="token punctuation">&quot;</span></span>
+      <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>viewport<span class="token punctuation">&quot;</span></span>
+    <span class="token punctuation">/&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>style</span><span class="token punctuation">&gt;</span></span><span class="token style"><span class="token language-css">
+      <span class="token selector">body</span> <span class="token punctuation">{</span>
+        <span class="token property">margin</span><span class="token punctuation">:</span> 40px<span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+
+      <span class="token selector">.box</span> <span class="token punctuation">{</span>
+        <span class="token property">display</span><span class="token punctuation">:</span> inline-block<span class="token punctuation">;</span>
+        <span class="token property">width</span><span class="token punctuation">:</span> 200px<span class="token punctuation">;</span>
+        <span class="token property">line-height</span><span class="token punctuation">:</span> 200px<span class="token punctuation">;</span>
+        <span class="token property">text-align</span><span class="token punctuation">:</span> 200px<span class="token punctuation">;</span>
+        <span class="token property">border</span><span class="token punctuation">:</span> 2px solid black<span class="token punctuation">;</span>
+        <span class="token property">background-color</span><span class="token punctuation">:</span> #ea5<span class="token punctuation">;</span>
+        <span class="token property">margin-left</span><span class="token punctuation">:</span> -60px<span class="token punctuation">;</span>
+        <span class="token property">vertical-align</span><span class="token punctuation">:</span> top<span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+
+      <span class="token selector">.one</span> <span class="token punctuation">{</span>
+        <span class="token property">margin-left</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+
+      <span class="token selector">.two</span> <span class="token punctuation">{</span>
+        <span class="token property">margin-top</span><span class="token punctuation">:</span> 30px<span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+
+      <span class="token selector">.three</span> <span class="token punctuation">{</span>
+        <span class="token property">margin-top</span><span class="token punctuation">:</span> 60px<span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+
+      <span class="token selector">.positioned</span> <span class="token punctuation">{</span>
+        <span class="token property">position</span><span class="token punctuation">:</span> relative<span class="token punctuation">;</span>
+        <span class="token property">background-color</span><span class="token punctuation">:</span> #5ae<span class="token punctuation">;</span>
+        <span class="token property">z-index</span><span class="token punctuation">:</span> 1<span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+
+      <span class="token selector">.absolute</span> <span class="token punctuation">{</span>
+        <span class="token property">position</span><span class="token punctuation">:</span> absolute<span class="token punctuation">;</span>
+        <span class="token property">top</span><span class="token punctuation">:</span> 1em<span class="token punctuation">;</span>
+        <span class="token property">right</span><span class="token punctuation">:</span> 1em<span class="token punctuation">;</span>
+        <span class="token property">height</span><span class="token punctuation">:</span> 2em<span class="token punctuation">;</span>
+        <span class="token property">background-color</span><span class="token punctuation">:</span> #fff<span class="token punctuation">;</span>
+        <span class="token property">border</span><span class="token punctuation">:</span> 2px dashed #888<span class="token punctuation">;</span>
+        <span class="token property">z-index</span><span class="token punctuation">:</span> 100<span class="token punctuation">;</span>
+        <span class="token property">line-height</span><span class="token punctuation">:</span> initial<span class="token punctuation">;</span>
+        <span class="token property">padding</span><span class="token punctuation">:</span> 1em<span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+    </span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>style</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>head</span><span class="token punctuation">&gt;</span></span>
+
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>box one positioned<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+      one
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>absolute<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>nested<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>box two positioned<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>tow<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>box three<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>three<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">&gt;</span></span><span class="token script"></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">&gt;</span></span>
+</code></pre></div><p>  这个代码包含了三个盒子，其中两个被定位，并且z-index为1，第一个盒子里有一个绝对定位的元素，它的z-index为100，虽然第一个盒子的z-index很高，但还是出现在第二个盒子后面，因为它的父元素，即第一个盒子形成的层叠上下文在第二个盒子后面。叠放在第二个盒子后面的第一个盒子是一个层叠上下文的根。因此，虽然它的z-index值很高，但它内部的绝对定位元素不会跑到第二个盒子前面。</p> <p>  给一个定位元素加上z-index是创建层叠上下文最主要的方式，但有些属性也会创建，比如小于1的opacity属性，还有transform,filter属性。由于这些属性主要会影响元素及其子元素渲染的方式，因此一起绘制父子元素。</p> <p>  如果不根据组件的优先级定义清晰的层叠顺序，那么一个样式表很容易演变成一场z-index大战。如果没有清晰的说明，开发人员在一个模态框之类的元素添加样式时，为了不被其他元素遮挡，就会设置一个高的离谱的z-index.这种事情重复几次后，大家就只能凭感觉给一个新的组件设置z-index.所以我们最好建立一个自定义属性文件，就能很方便的处理这个问题。将增量设为100，10，这样就可以在需要的时候往中间插入新值。</p> <p>  如果发现z-index没有按照预期表现，就在dom树里往上找到元素的祖先节点，直到发现层叠上下文的根，然后给它设置z-index.</p></div> <footer class="page-edit"><!----> <!----></footer> <!----> </main></div><div class="global-ui"></div></div>
+    <script src="/alblog/assets/js/app.7e831839.js" defer></script><script src="/alblog/assets/js/2.1ce74a08.js" defer></script><script src="/alblog/assets/js/32.15d17a4e.js" defer></script>
+  </body>
+</html>
