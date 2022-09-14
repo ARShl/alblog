@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>数据结构与算法详解 2（贪心算法) | al的前端小屋</title>
+    <meta name="generator" content="VuePress 1.9.7">
+    <link rel="icon" href="/alblog/icon.jpg">
+    <meta name="description" content="">
+    
+    <link rel="preload" href="/alblog/assets/css/0.styles.d50160af.css" as="style"><link rel="preload" href="/alblog/assets/js/app.355d6781.js" as="script"><link rel="preload" href="/alblog/assets/js/2.03ebf054.js" as="script"><link rel="preload" href="/alblog/assets/js/16.2d1a88a9.js" as="script"><link rel="prefetch" href="/alblog/assets/js/10.8d6ed693.js"><link rel="prefetch" href="/alblog/assets/js/11.c66ee40e.js"><link rel="prefetch" href="/alblog/assets/js/12.41c7cae7.js"><link rel="prefetch" href="/alblog/assets/js/13.63391230.js"><link rel="prefetch" href="/alblog/assets/js/14.245b83a2.js"><link rel="prefetch" href="/alblog/assets/js/15.d752e834.js"><link rel="prefetch" href="/alblog/assets/js/17.945999d5.js"><link rel="prefetch" href="/alblog/assets/js/18.5d76070c.js"><link rel="prefetch" href="/alblog/assets/js/19.7954c504.js"><link rel="prefetch" href="/alblog/assets/js/20.43324720.js"><link rel="prefetch" href="/alblog/assets/js/21.6f8de43d.js"><link rel="prefetch" href="/alblog/assets/js/22.590f25c8.js"><link rel="prefetch" href="/alblog/assets/js/23.f6867e03.js"><link rel="prefetch" href="/alblog/assets/js/24.9e02e7c8.js"><link rel="prefetch" href="/alblog/assets/js/25.23cf3a4d.js"><link rel="prefetch" href="/alblog/assets/js/26.00523e95.js"><link rel="prefetch" href="/alblog/assets/js/27.476f4fe2.js"><link rel="prefetch" href="/alblog/assets/js/28.cd9806ee.js"><link rel="prefetch" href="/alblog/assets/js/29.389da35f.js"><link rel="prefetch" href="/alblog/assets/js/3.dd5c7757.js"><link rel="prefetch" href="/alblog/assets/js/30.0eb158f4.js"><link rel="prefetch" href="/alblog/assets/js/31.ddc0ff42.js"><link rel="prefetch" href="/alblog/assets/js/32.da0b4c0b.js"><link rel="prefetch" href="/alblog/assets/js/33.610f5551.js"><link rel="prefetch" href="/alblog/assets/js/34.d50062e1.js"><link rel="prefetch" href="/alblog/assets/js/35.dd8c2412.js"><link rel="prefetch" href="/alblog/assets/js/36.082f3f29.js"><link rel="prefetch" href="/alblog/assets/js/37.52c5eeeb.js"><link rel="prefetch" href="/alblog/assets/js/38.7633100f.js"><link rel="prefetch" href="/alblog/assets/js/39.617e8325.js"><link rel="prefetch" href="/alblog/assets/js/4.2d2288ad.js"><link rel="prefetch" href="/alblog/assets/js/40.e211bab6.js"><link rel="prefetch" href="/alblog/assets/js/41.36460a4d.js"><link rel="prefetch" href="/alblog/assets/js/42.2fbc3df5.js"><link rel="prefetch" href="/alblog/assets/js/43.7d8d97ba.js"><link rel="prefetch" href="/alblog/assets/js/44.7803b38d.js"><link rel="prefetch" href="/alblog/assets/js/45.526ae1d4.js"><link rel="prefetch" href="/alblog/assets/js/46.418e487f.js"><link rel="prefetch" href="/alblog/assets/js/47.c98cb0c6.js"><link rel="prefetch" href="/alblog/assets/js/48.d3727d20.js"><link rel="prefetch" href="/alblog/assets/js/49.1e76f936.js"><link rel="prefetch" href="/alblog/assets/js/5.d223beea.js"><link rel="prefetch" href="/alblog/assets/js/50.dc3bac3d.js"><link rel="prefetch" href="/alblog/assets/js/51.04ff565a.js"><link rel="prefetch" href="/alblog/assets/js/52.4734d0db.js"><link rel="prefetch" href="/alblog/assets/js/53.9c3e1433.js"><link rel="prefetch" href="/alblog/assets/js/54.77f7978d.js"><link rel="prefetch" href="/alblog/assets/js/55.b23fbe90.js"><link rel="prefetch" href="/alblog/assets/js/56.ca6018fa.js"><link rel="prefetch" href="/alblog/assets/js/57.9e636874.js"><link rel="prefetch" href="/alblog/assets/js/58.2715a001.js"><link rel="prefetch" href="/alblog/assets/js/59.e7885dba.js"><link rel="prefetch" href="/alblog/assets/js/6.35d0bb7f.js"><link rel="prefetch" href="/alblog/assets/js/60.45fd82d3.js"><link rel="prefetch" href="/alblog/assets/js/61.cc0ec143.js"><link rel="prefetch" href="/alblog/assets/js/62.dbedffd7.js"><link rel="prefetch" href="/alblog/assets/js/63.c818127c.js"><link rel="prefetch" href="/alblog/assets/js/64.7d6873dd.js"><link rel="prefetch" href="/alblog/assets/js/65.e48edac3.js"><link rel="prefetch" href="/alblog/assets/js/66.40655f8c.js"><link rel="prefetch" href="/alblog/assets/js/67.c89911f3.js"><link rel="prefetch" href="/alblog/assets/js/68.e2c92813.js"><link rel="prefetch" href="/alblog/assets/js/69.6720353b.js"><link rel="prefetch" href="/alblog/assets/js/7.590c5b12.js"><link rel="prefetch" href="/alblog/assets/js/70.fcd9a8cb.js"><link rel="prefetch" href="/alblog/assets/js/71.c5a43540.js"><link rel="prefetch" href="/alblog/assets/js/72.e08743bb.js"><link rel="prefetch" href="/alblog/assets/js/73.f6cb8cc8.js"><link rel="prefetch" href="/alblog/assets/js/74.7e237eaa.js"><link rel="prefetch" href="/alblog/assets/js/75.e382272e.js"><link rel="prefetch" href="/alblog/assets/js/76.ab365521.js"><link rel="prefetch" href="/alblog/assets/js/77.2ded31f6.js"><link rel="prefetch" href="/alblog/assets/js/78.d82c8ccc.js"><link rel="prefetch" href="/alblog/assets/js/79.129e07fe.js"><link rel="prefetch" href="/alblog/assets/js/8.4a2cf3cb.js"><link rel="prefetch" href="/alblog/assets/js/80.4a461777.js"><link rel="prefetch" href="/alblog/assets/js/81.51401110.js"><link rel="prefetch" href="/alblog/assets/js/82.b4fdcbc1.js"><link rel="prefetch" href="/alblog/assets/js/9.24de0554.js">
+    <link rel="stylesheet" href="/alblog/assets/css/0.styles.d50160af.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/alblog/" class="home-link router-link-active"><!----> <span class="site-name">al的前端小屋</span></a> <div class="links"><!----> <nav class="nav-links can-hide"><div class="nav-item"><a href="/alblog/" class="nav-link">
+  Home
+</a></div><div class="nav-item"><a href="/alblog/read/" class="nav-link">
+  读书
+</a></div><div class="nav-item"><a href="/alblog/algorithm/" class="nav-link router-link-active">
+  算法
+</a></div><div class="nav-item"><a href="/alblog/skill/" class="nav-link">
+  技术
+</a></div><div class="nav-item"><a href="/alblog/vue/" class="nav-link">
+  Vue.js
+</a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/alblog/" class="nav-link">
+  Home
+</a></div><div class="nav-item"><a href="/alblog/read/" class="nav-link">
+  读书
+</a></div><div class="nav-item"><a href="/alblog/algorithm/" class="nav-link router-link-active">
+  算法
+</a></div><div class="nav-item"><a href="/alblog/skill/" class="nav-link">
+  技术
+</a></div><div class="nav-item"><a href="/alblog/vue/" class="nav-link">
+  Vue.js
+</a></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>数据结构与算法详解</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/alblog/algorithm/yibu/1.html" class="sidebar-link">数据结构与算法详解1</a></li><li><a href="/alblog/algorithm/yibu/2.html" aria-current="page" class="active sidebar-link">数据结构与算法详解2</a></li></ul></section></li><li><a href="/alblog/algorithm/backtracking.html" class="sidebar-link">让我们一起搞懂回溯吧！</a></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="数据结构与算法详解-2-贪心算法"><a href="#数据结构与算法详解-2-贪心算法" class="header-anchor">#</a> 数据结构与算法详解 2（贪心算法)</h1> <hr> <p>  贪心算法是一种不追求最优解，只希望找到较满意解的算法。贪心算法常以当前情况为基础做最优选择，而不考虑各种可能的整体情况，所以贪心算法不需要回溯。</p> <p>  贪心算法所做的选择看起来都是当前最佳的，期望通过局部最优解产生一个全局最优解。在对问题求解时，贪心算法总是做出在当前看来最好的选择。也就是说，它不从整体最优上考虑，它所做出的选择仅仅是在某种意义上的局部最优解。</p> <p>  跳跃游戏。给定一个非负整数数组 nums ，你最初位于数组的 第一个下标 。数组中的每个元素代表你在该位置可以跳跃的最大长度。判断你是否能够到达最后一个下标。</p> <div class="language-javascript extra-class"><pre class="language-javascript"><code><span class="token keyword">var</span> <span class="token function-variable function">canJump</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">nums</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">let</span> len <span class="token operator">=</span> nums<span class="token punctuation">.</span>length
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>len <span class="token operator">&lt;=</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token boolean">true</span>
+  <span class="token punctuation">}</span>
+  <span class="token keyword">let</span> pre <span class="token operator">=</span> Math<span class="token punctuation">.</span><span class="token function">max</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> nums<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+  <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> len<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>pre <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">return</span> <span class="token boolean">false</span>
+    <span class="token punctuation">}</span>
+    pre <span class="token operator">=</span> Math<span class="token punctuation">.</span><span class="token function">max</span><span class="token punctuation">(</span>nums<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">,</span> pre <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+  <span class="token keyword">return</span> <span class="token boolean">true</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>   K 次取反后最大化的数组和
+给你一个整数数组 nums 和一个整数 k ，按以下方法修改该数组：</p> <p>选择某个下标 i 并将 nums[i] 替换为 -nums[i] 。
+重复这个过程恰好 k 次。可以多次选择同一个下标 i 。</p> <p>以这种方式修改数组后，返回数组 可能的最大和 。</p> <div class="language-javascript extra-class"><pre class="language-javascript"><code><span class="token comment">/**
+ * @param {number[]} nums
+ * @param {number} k
+ * @return {number}
+ */</span>
+<span class="token keyword">var</span> <span class="token function-variable function">largestSumAfterKNegations</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">nums<span class="token punctuation">,</span> k</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> k<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    nums<span class="token punctuation">.</span><span class="token function">sort</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">a<span class="token punctuation">,</span> b</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> a <span class="token operator">-</span> b<span class="token punctuation">)</span>
+    nums<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">=</span> nums<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">&lt;</span> <span class="token number">0</span> <span class="token operator">?</span> Math<span class="token punctuation">.</span><span class="token function">abs</span><span class="token punctuation">(</span>nums<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">:</span> <span class="token operator">~</span>nums<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">+</span> <span class="token number">1</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token keyword">return</span> nums<span class="token punctuation">.</span><span class="token function">reduce</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">a<span class="token punctuation">,</span> b</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> a <span class="token operator">+</span> b<span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>  柠檬水找零
+在柠檬水摊上，每一杯柠檬水的售价为 5 美元。顾客排队购买你的产品，（按账单 bills 支付的顺序）一次购买一杯。</p> <p>每位顾客只买一杯柠檬水，然后向你付 5 美元、10 美元或 20 美元。你必须给每个顾客正确找零，也就是说净交易是每位顾客向你支付 5 美元。</p> <p>注意，一开始你手头没有任何零钱。</p> <p>给你一个整数数组 bills ，其中 bills[i] 是第 i 位顾客付的账。如果你能给每位顾客正确找零，返回 true ，否则返回 false 。</p> <div class="language-javascript extra-class"><pre class="language-javascript"><code><span class="token keyword">var</span> <span class="token function-variable function">lemonadeChange</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">bills</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">let</span> five <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span>
+    ten <span class="token operator">=</span> <span class="token number">0</span>
+  <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> bills<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> el <span class="token operator">=</span> bills<span class="token punctuation">[</span>i<span class="token punctuation">]</span>
+
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>el <span class="token operator">==</span> <span class="token number">5</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      five <span class="token operator">+=</span> <span class="token number">1</span>
+    <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>el <span class="token operator">==</span> <span class="token number">10</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">if</span> <span class="token punctuation">(</span>five <span class="token operator">&gt;</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        five <span class="token operator">-=</span> <span class="token number">1</span>
+        ten <span class="token operator">+=</span> <span class="token number">1</span>
+      <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token boolean">false</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+      <span class="token keyword">if</span> <span class="token punctuation">(</span>ten <span class="token operator">&gt;</span> <span class="token number">0</span> <span class="token operator">&amp;&amp;</span> five <span class="token operator">&gt;</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        ten <span class="token operator">-=</span> <span class="token number">1</span>
+        five <span class="token operator">-=</span> <span class="token number">1</span>
+      <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>five <span class="token operator">&gt;</span> <span class="token number">2</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        five <span class="token operator">-=</span> <span class="token number">3</span>
+      <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token boolean">false</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+  <span class="token keyword">return</span> <span class="token boolean">true</span>
+<span class="token punctuation">}</span>
+</code></pre></div><hr> <img src="/alblog/assets/img/1.8ddf4275.jpeg"></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/alblog/algorithm/yibu/1.html" class="prev">
+        数据结构与算法详解1
+      </a></span> <span class="next"><a href="/alblog/algorithm/backtracking.html">
+        让我们一起搞懂回溯吧！
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/alblog/assets/js/app.355d6781.js" defer></script><script src="/alblog/assets/js/2.03ebf054.js" defer></script><script src="/alblog/assets/js/16.2d1a88a9.js" defer></script>
+  </body>
+</html>

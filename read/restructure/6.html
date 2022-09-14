@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>重构 读书笔记 6 重构 API/处理继承关系 | al的前端小屋</title>
+    <meta name="generator" content="VuePress 1.9.7">
+    <link rel="icon" href="/alblog/icon.jpg">
+    <meta name="description" content="">
+    
+    <link rel="preload" href="/alblog/assets/css/0.styles.d50160af.css" as="style"><link rel="preload" href="/alblog/assets/js/app.355d6781.js" as="script"><link rel="preload" href="/alblog/assets/js/2.03ebf054.js" as="script"><link rel="preload" href="/alblog/assets/js/59.e7885dba.js" as="script"><link rel="prefetch" href="/alblog/assets/js/10.8d6ed693.js"><link rel="prefetch" href="/alblog/assets/js/11.c66ee40e.js"><link rel="prefetch" href="/alblog/assets/js/12.41c7cae7.js"><link rel="prefetch" href="/alblog/assets/js/13.63391230.js"><link rel="prefetch" href="/alblog/assets/js/14.245b83a2.js"><link rel="prefetch" href="/alblog/assets/js/15.d752e834.js"><link rel="prefetch" href="/alblog/assets/js/16.2d1a88a9.js"><link rel="prefetch" href="/alblog/assets/js/17.945999d5.js"><link rel="prefetch" href="/alblog/assets/js/18.5d76070c.js"><link rel="prefetch" href="/alblog/assets/js/19.7954c504.js"><link rel="prefetch" href="/alblog/assets/js/20.43324720.js"><link rel="prefetch" href="/alblog/assets/js/21.6f8de43d.js"><link rel="prefetch" href="/alblog/assets/js/22.590f25c8.js"><link rel="prefetch" href="/alblog/assets/js/23.f6867e03.js"><link rel="prefetch" href="/alblog/assets/js/24.9e02e7c8.js"><link rel="prefetch" href="/alblog/assets/js/25.23cf3a4d.js"><link rel="prefetch" href="/alblog/assets/js/26.00523e95.js"><link rel="prefetch" href="/alblog/assets/js/27.476f4fe2.js"><link rel="prefetch" href="/alblog/assets/js/28.cd9806ee.js"><link rel="prefetch" href="/alblog/assets/js/29.389da35f.js"><link rel="prefetch" href="/alblog/assets/js/3.dd5c7757.js"><link rel="prefetch" href="/alblog/assets/js/30.0eb158f4.js"><link rel="prefetch" href="/alblog/assets/js/31.ddc0ff42.js"><link rel="prefetch" href="/alblog/assets/js/32.da0b4c0b.js"><link rel="prefetch" href="/alblog/assets/js/33.610f5551.js"><link rel="prefetch" href="/alblog/assets/js/34.d50062e1.js"><link rel="prefetch" href="/alblog/assets/js/35.dd8c2412.js"><link rel="prefetch" href="/alblog/assets/js/36.082f3f29.js"><link rel="prefetch" href="/alblog/assets/js/37.52c5eeeb.js"><link rel="prefetch" href="/alblog/assets/js/38.7633100f.js"><link rel="prefetch" href="/alblog/assets/js/39.617e8325.js"><link rel="prefetch" href="/alblog/assets/js/4.2d2288ad.js"><link rel="prefetch" href="/alblog/assets/js/40.e211bab6.js"><link rel="prefetch" href="/alblog/assets/js/41.36460a4d.js"><link rel="prefetch" href="/alblog/assets/js/42.2fbc3df5.js"><link rel="prefetch" href="/alblog/assets/js/43.7d8d97ba.js"><link rel="prefetch" href="/alblog/assets/js/44.7803b38d.js"><link rel="prefetch" href="/alblog/assets/js/45.526ae1d4.js"><link rel="prefetch" href="/alblog/assets/js/46.418e487f.js"><link rel="prefetch" href="/alblog/assets/js/47.c98cb0c6.js"><link rel="prefetch" href="/alblog/assets/js/48.d3727d20.js"><link rel="prefetch" href="/alblog/assets/js/49.1e76f936.js"><link rel="prefetch" href="/alblog/assets/js/5.d223beea.js"><link rel="prefetch" href="/alblog/assets/js/50.dc3bac3d.js"><link rel="prefetch" href="/alblog/assets/js/51.04ff565a.js"><link rel="prefetch" href="/alblog/assets/js/52.4734d0db.js"><link rel="prefetch" href="/alblog/assets/js/53.9c3e1433.js"><link rel="prefetch" href="/alblog/assets/js/54.77f7978d.js"><link rel="prefetch" href="/alblog/assets/js/55.b23fbe90.js"><link rel="prefetch" href="/alblog/assets/js/56.ca6018fa.js"><link rel="prefetch" href="/alblog/assets/js/57.9e636874.js"><link rel="prefetch" href="/alblog/assets/js/58.2715a001.js"><link rel="prefetch" href="/alblog/assets/js/6.35d0bb7f.js"><link rel="prefetch" href="/alblog/assets/js/60.45fd82d3.js"><link rel="prefetch" href="/alblog/assets/js/61.cc0ec143.js"><link rel="prefetch" href="/alblog/assets/js/62.dbedffd7.js"><link rel="prefetch" href="/alblog/assets/js/63.c818127c.js"><link rel="prefetch" href="/alblog/assets/js/64.7d6873dd.js"><link rel="prefetch" href="/alblog/assets/js/65.e48edac3.js"><link rel="prefetch" href="/alblog/assets/js/66.40655f8c.js"><link rel="prefetch" href="/alblog/assets/js/67.c89911f3.js"><link rel="prefetch" href="/alblog/assets/js/68.e2c92813.js"><link rel="prefetch" href="/alblog/assets/js/69.6720353b.js"><link rel="prefetch" href="/alblog/assets/js/7.590c5b12.js"><link rel="prefetch" href="/alblog/assets/js/70.fcd9a8cb.js"><link rel="prefetch" href="/alblog/assets/js/71.c5a43540.js"><link rel="prefetch" href="/alblog/assets/js/72.e08743bb.js"><link rel="prefetch" href="/alblog/assets/js/73.f6cb8cc8.js"><link rel="prefetch" href="/alblog/assets/js/74.7e237eaa.js"><link rel="prefetch" href="/alblog/assets/js/75.e382272e.js"><link rel="prefetch" href="/alblog/assets/js/76.ab365521.js"><link rel="prefetch" href="/alblog/assets/js/77.2ded31f6.js"><link rel="prefetch" href="/alblog/assets/js/78.d82c8ccc.js"><link rel="prefetch" href="/alblog/assets/js/79.129e07fe.js"><link rel="prefetch" href="/alblog/assets/js/8.4a2cf3cb.js"><link rel="prefetch" href="/alblog/assets/js/80.4a461777.js"><link rel="prefetch" href="/alblog/assets/js/81.51401110.js"><link rel="prefetch" href="/alblog/assets/js/82.b4fdcbc1.js"><link rel="prefetch" href="/alblog/assets/js/9.24de0554.js">
+    <link rel="stylesheet" href="/alblog/assets/css/0.styles.d50160af.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/alblog/" class="home-link router-link-active"><!----> <span class="site-name">al的前端小屋</span></a> <div class="links"><!----> <nav class="nav-links can-hide"><div class="nav-item"><a href="/alblog/" class="nav-link">
+  Home
+</a></div><div class="nav-item"><a href="/alblog/read/" class="nav-link router-link-active">
+  读书
+</a></div><div class="nav-item"><a href="/alblog/algorithm/" class="nav-link">
+  算法
+</a></div><div class="nav-item"><a href="/alblog/skill/" class="nav-link">
+  技术
+</a></div><div class="nav-item"><a href="/alblog/vue/" class="nav-link">
+  Vue.js
+</a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/alblog/" class="nav-link">
+  Home
+</a></div><div class="nav-item"><a href="/alblog/read/" class="nav-link router-link-active">
+  读书
+</a></div><div class="nav-item"><a href="/alblog/algorithm/" class="nav-link">
+  算法
+</a></div><div class="nav-item"><a href="/alblog/skill/" class="nav-link">
+  技术
+</a></div><div class="nav-item"><a href="/alblog/vue/" class="nav-link">
+  Vue.js
+</a></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>重构：改善既有代码的设计</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/alblog/read/restructure/1.html" class="sidebar-link">重构1</a></li></ul></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>javascript忍者秘籍</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>《深入解析CSS》</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>《js设计模式与开发实践》</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>《写给大家看的设计书》</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>《你不知道的JavaScript》(中)</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>《你不知道的JavaScript》(上)</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>《Javascript悟道》</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>《程序员修炼之道》</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>《程序员的 38 堂成长课》</span> <span class="arrow right"></span></p> <!----></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="重构-读书笔记-6-重构-api-处理继承关系"><a href="#重构-读书笔记-6-重构-api-处理继承关系" class="header-anchor">#</a> 重构 读书笔记 6 重构 API/处理继承关系</h1> <img src="/alblog/assets/img/1.d6b0c875.jpeg"> <hr> <p>  好的 API 会把更新数据的函数与只是读取数据的函数清晰分开。如果我看到这两类操作被混在一起，就会用将查询函数和修改函数分离将它们分开。如果两个函数的功能非常相似，只有一些数据不同，我就可以用函数参数化将其统一。在函数间传递时，数据结构常会毫无必要的被拆开，我更愿意用保持对象完整将其聚拢。</p> <p>  将查询函数和修改函数分离</p> <div class="language-javascript extra-class"><pre class="language-javascript"><code><span class="token keyword">function</span> <span class="token function">getTotalOutstandingAndSendBill</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> result <span class="token operator">=</span> customer<span class="token punctuation">.</span>invoices<span class="token punctuation">.</span><span class="token function">reduce</span><span class="token punctuation">(</span>
+    <span class="token punctuation">(</span><span class="token parameter">total<span class="token punctuation">,</span> each</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> each<span class="token punctuation">.</span>amount <span class="token operator">+</span> total<span class="token punctuation">,</span>
+    <span class="token number">0</span>
+  <span class="token punctuation">)</span>
+  <span class="token function">sendBill</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+  <span class="token keyword">return</span> result
+<span class="token punctuation">}</span>
+
+<span class="token comment">// 优化</span>
+<span class="token keyword">function</span> <span class="token function">totalOutstanding</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> customer<span class="token punctuation">.</span>invoices<span class="token punctuation">.</span><span class="token function">reduce</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">total<span class="token punctuation">,</span> each</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> each<span class="token punctuation">.</span>amount <span class="token operator">+</span> total<span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">function</span> <span class="token function">sendBill</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  emailGateway<span class="token punctuation">.</span><span class="token function">send</span><span class="token punctuation">(</span><span class="token function">formatBill</span><span class="token punctuation">(</span>customer<span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>  如果某个函数只是提供一个值，没有任何看得到的副作用，那么这是一个很有价值的东西。我可以任意调用这个函数，也可以把调用动作半岛调用函数的其他地方。这种函数的测试也更容易。简而言之，需要操心的事情少多了。</p> <div class="language-javascript extra-class"><pre class="language-javascript"><code><span class="token keyword">function</span> <span class="token function">alertForMiscreant</span><span class="token punctuation">(</span><span class="token parameter">people</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">const</span> p <span class="token keyword">of</span> people<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>p <span class="token operator">===</span> <span class="token string">'Don'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token function">setOffAlarms</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+      <span class="token keyword">return</span> <span class="token string">'Don'</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>p <span class="token operator">===</span> <span class="token string">'John'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token function">setOffAlarms</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+      <span class="token keyword">return</span> <span class="token string">'John'</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token keyword">return</span> <span class="token string">''</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// 首先我复制整个函数，用它的查询部分功能为其命名</span>
+<span class="token keyword">function</span> <span class="token function">findMiscreant</span><span class="token punctuation">(</span><span class="token parameter">people</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+
+<span class="token comment">//然后在新建的查询函数中去掉副作用。</span>
+<span class="token keyword">function</span> <span class="token function">alertForMiscreant</span><span class="token punctuation">(</span><span class="token parameter">people</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">findMiscreant</span><span class="token punctuation">(</span>people<span class="token punctuation">)</span> <span class="token operator">!=</span> <span class="token string">''</span><span class="token punctuation">)</span> <span class="token function">setOffAlarms</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>  函数参数化。曾命名：令函数携带参数。</p> <div class="language-javascript extra-class"><pre class="language-javascript"><code><span class="token keyword">function</span> <span class="token function">tenPercentRaise</span><span class="token punctuation">(</span><span class="token parameter">aPerson</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  aPerson<span class="token punctuation">.</span>salary <span class="token operator">=</span> aPerson<span class="token punctuation">.</span>salary<span class="token punctuation">.</span><span class="token function">multiply</span><span class="token punctuation">(</span><span class="token number">1.1</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">function</span> <span class="token function">fivePercentRaise</span><span class="token punctuation">(</span><span class="token parameter">aPerson</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  aPerson<span class="token punctuation">.</span>salary <span class="token operator">=</span> aPerson<span class="token punctuation">.</span>salary<span class="token punctuation">.</span><span class="token function">multiply</span><span class="token punctuation">(</span><span class="token number">1.05</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// 优化</span>
+<span class="token keyword">function</span> <span class="token function">raise</span><span class="token punctuation">(</span><span class="token parameter">aPerson<span class="token punctuation">,</span> factor</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  aPerson<span class="token punctuation">.</span>salary <span class="token operator">=</span> aPerson<span class="token punctuation">.</span>salary<span class="token punctuation">.</span><span class="token function">multiply</span><span class="token punctuation">(</span><span class="token number">1</span> <span class="token operator">+</span> factor<span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>  如果我发现两个函数逻辑非常相似，只有一些字面量值不同，可以将其合并成一个函数，以参数的形式传入不同的值，从而消除重复。这个重构可以使函数更有用，因为重构后的函数还可以用于处理其他的值。</p> <div class="language-javascript extra-class"><pre class="language-javascript"><code><span class="token keyword">function</span> <span class="token function">baseCharge</span><span class="token punctuation">(</span><span class="token parameter">usage</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>usage <span class="token operator">&lt;</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token keyword">return</span> <span class="token function">usd</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span>
+  <span class="token keyword">const</span> amount <span class="token operator">=</span>
+    <span class="token function">bottomBand</span><span class="token punctuation">(</span>usage<span class="token punctuation">)</span> <span class="token operator">*</span> <span class="token number">0.03</span> <span class="token operator">+</span> <span class="token function">middleBand</span><span class="token punctuation">(</span>usage<span class="token punctuation">)</span> <span class="token operator">*</span> <span class="token number">0.05</span> <span class="token operator">+</span> <span class="token function">topBand</span><span class="token punctuation">(</span>usage<span class="token punctuation">)</span> <span class="token operator">*</span> <span class="token number">0.07</span>
+  <span class="token keyword">return</span> <span class="token function">usd</span><span class="token punctuation">(</span>amount<span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">function</span> <span class="token function">bottomBand</span><span class="token punctuation">(</span><span class="token parameter">usage</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> Math<span class="token punctuation">.</span><span class="token function">min</span><span class="token punctuation">(</span>usage<span class="token punctuation">,</span> <span class="token number">100</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">function</span> <span class="token function">middleBand</span><span class="token punctuation">(</span><span class="token parameter">usage</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> usage <span class="token operator">&gt;</span> <span class="token number">100</span> <span class="token operator">?</span> Math<span class="token punctuation">.</span><span class="token function">min</span><span class="token punctuation">(</span>usage<span class="token punctuation">,</span> <span class="token number">200</span><span class="token punctuation">)</span> <span class="token operator">-</span> <span class="token number">100</span> <span class="token operator">:</span> <span class="token number">0</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">function</span> <span class="token function">topBand</span><span class="token punctuation">(</span><span class="token parameter">usage</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> usage <span class="token operator">&gt;</span> <span class="token number">200</span> <span class="token operator">?</span> usage <span class="token operator">-</span> <span class="token number">200</span> <span class="token operator">:</span> <span class="token number">0</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// 优化过程</span>
+<span class="token keyword">function</span> <span class="token function">baseCharge</span><span class="token punctuation">(</span><span class="token parameter">usage</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>usage <span class="token operator">&lt;</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token keyword">return</span> <span class="token function">usd</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span>
+  <span class="token keyword">const</span> amount <span class="token operator">=</span>
+    <span class="token function">withinBand</span><span class="token punctuation">(</span>usage<span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">100</span><span class="token punctuation">)</span> <span class="token operator">*</span> <span class="token number">0.03</span> <span class="token operator">+</span>
+    <span class="token function">withinBand</span><span class="token punctuation">(</span>usage<span class="token punctuation">,</span> <span class="token number">100</span><span class="token punctuation">,</span> <span class="token number">200</span><span class="token punctuation">)</span> <span class="token operator">*</span> <span class="token number">0.05</span> <span class="token operator">+</span>
+    <span class="token function">withBand</span><span class="token punctuation">(</span>usage<span class="token punctuation">,</span> <span class="token number">200</span><span class="token punctuation">,</span> <span class="token number">Infinity</span><span class="token punctuation">)</span> <span class="token operator">*</span> <span class="token number">0.07</span>
+  <span class="token keyword">return</span> <span class="token function">usd</span><span class="token punctuation">(</span>amount<span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">function</span> <span class="token function">withinBand</span><span class="token punctuation">(</span><span class="token parameter">usage<span class="token punctuation">,</span> bottom<span class="token punctuation">,</span> top</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> usage <span class="token operator">&gt;</span> bottom <span class="token operator">?</span> Math<span class="token punctuation">.</span><span class="token function">min</span><span class="token punctuation">(</span>usage<span class="token punctuation">,</span> top<span class="token punctuation">)</span> <span class="token operator">-</span> bottom <span class="token operator">:</span> <span class="token number">0</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>  移除标记参数。曾用名：以明确函数取代参数。</p> <div class="language-javascript extra-class"><pre class="language-javascript"><code><span class="token keyword">function</span> <span class="token function">setDimension</span><span class="token punctuation">(</span><span class="token parameter">name<span class="token punctuation">,</span> value</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>name <span class="token operator">===</span> <span class="token string">'height'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>_height <span class="token operator">=</span> value
+    <span class="token keyword">return</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>name <span class="token operator">===</span> <span class="token string">'width'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>_width <span class="token operator">=</span> value
+    <span class="token keyword">return</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// 优化</span>
+<span class="token keyword">function</span> <span class="token function">setHeight</span><span class="token punctuation">(</span><span class="token parameter">value</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">this</span><span class="token punctuation">.</span>_height <span class="token operator">=</span> value
+<span class="token punctuation">}</span>
+
+<span class="token keyword">function</span> <span class="token function">setWidth</span><span class="token punctuation">(</span><span class="token parameter">value</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">this</span><span class="token punctuation">.</span>_width <span class="token operator">=</span> value
+<span class="token punctuation">}</span>
+</code></pre></div><p>  &quot;标记参数&quot;是这样的一种参数：调用者用它来指示被调函数应该执行哪一部分的逻辑。在浏览代码时，我发现多处代码在调用一个函数计算物流的到货日期。一些调用代码类似这样：</p> <div class="language-javascript extra-class"><pre class="language-javascript"><code>aShipment<span class="token punctuation">.</span>deliveryDate <span class="token operator">=</span> <span class="token function">deliveryDate</span><span class="token punctuation">(</span>anOrder<span class="token punctuation">,</span> <span class="token boolean">true</span><span class="token punctuation">)</span>
+aShipment<span class="token punctuation">.</span>deliveryDate <span class="token operator">=</span> <span class="token function">deliveryDate</span><span class="token punctuation">(</span>anOrder<span class="token punctuation">,</span> <span class="token boolean">false</span><span class="token punctuation">)</span>
+
+<span class="token comment">// 优化对资源的利用</span>
+aShipment<span class="token punctuation">.</span>deliveryDate <span class="token operator">=</span> <span class="token function">rushDeliveryDate</span><span class="token punctuation">(</span>anOrder<span class="token punctuation">)</span>
+</code></pre></div><p>  保持对象完整</p> <div class="language-javascript extra-class"><pre class="language-javascript"><code><span class="token keyword">const</span> low <span class="token operator">=</span> aRoom<span class="token punctuation">.</span>daysTempRange<span class="token punctuation">.</span>low
+<span class="token keyword">const</span> high <span class="token operator">=</span> aRoom<span class="token punctuation">.</span>daysTempRange<span class="token punctuation">.</span>high
+<span class="token keyword">if</span> <span class="token punctuation">(</span>aPlan<span class="token punctuation">.</span><span class="token function">withinRange</span><span class="token punctuation">(</span>low<span class="token punctuation">,</span> high<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+<span class="token punctuation">}</span>
+<span class="token comment">// 优化</span>
+<span class="token keyword">if</span> <span class="token punctuation">(</span>aPlan<span class="token punctuation">.</span><span class="token function">withinRange</span><span class="token punctuation">(</span>aRoom<span class="token punctuation">.</span>daysTempRange<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>  如果我看见代码从一个记录结构中导出几个值，然后又把这几个值一起传递给一个函数，我会更愿意把整个记录传递给这个函数，在函数体内部导出所需的值。传递整个记录的方式能更好地应对变化：如果将来被调的函数需要从记录中导出更多的数据，我就不用为此修改参数列表。并且传递整个记录也能缩短参数列表，让函数调用更容易看懂。</p> <p>  从一个对象中抽取出几个值，单独这几个值做某些逻辑操作，这是一种代码坏味道，通常标志着这段逻辑应该被搬移到对象中。保持对象完整经常发生在引入参数对象之后，我会搜寻使用原来的数据泥团的代码，代之以使用新的对象。</p> <p>  以查询取代参数。</p> <div class="language-javascript extra-class"><pre class="language-javascript"><code><span class="token function">availableVacation</span><span class="token punctuation">(</span>anEmployee<span class="token punctuation">,</span> anEmployee<span class="token punctuation">.</span>grade<span class="token punctuation">)</span>
+<span class="token keyword">function</span> <span class="token function">availableVacation</span><span class="token punctuation">(</span><span class="token parameter">anEmployee<span class="token punctuation">,</span> grade</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+
+<span class="token function">availableVacation</span><span class="token punctuation">(</span>anEmployee<span class="token punctuation">)</span>
+<span class="token keyword">function</span> <span class="token function">availableVacation</span><span class="token punctuation">(</span><span class="token parameter">anEmployee</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> grade <span class="token operator">=</span> anEmployee<span class="token punctuation">.</span>grade
+<span class="token punctuation">}</span>
+</code></pre></div><p>  函数的参数列表应该总结函数的可变性，标示出函数可能体现出行为差异的主要方式。和任何代码中的语句一样，参数列表应该尽量避免重复，并且参数列表越短越容易理解。如果调用函数时传入了一个值，而这个值由函数自己来获得也是同样容易，这就是重复。另外有一件事需要留意：如果在处理的函数具有引用透明性，这样的函数既容易理解又容易测试，我不想使其失去这种优秀品质。我不会去掉它的参数，让它去访问一个可变的全局变量。</p> <p>  以参数取代查询</p> <div class="language-javascript extra-class"><pre class="language-javascript"><code><span class="token function">targetTemperature</span><span class="token punctuation">(</span>aPlan<span class="token punctuation">)</span>
+
+<span class="token keyword">function</span> <span class="token function">targetTemperature</span><span class="token punctuation">(</span><span class="token parameter">aPlan</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  currentTemperature <span class="token operator">=</span> thermostat<span class="token punctuation">.</span>currentTemperature
+<span class="token punctuation">}</span>
+
+<span class="token function">targetTemperature</span><span class="token punctuation">(</span>aPlan<span class="token punctuation">,</span> thermostat<span class="token punctuation">.</span>currentTemperature<span class="token punctuation">)</span>
+
+<span class="token keyword">function</span> <span class="token function">targetTemperature</span><span class="token punctuation">(</span><span class="token parameter">aPlan<span class="token punctuation">,</span> currentTemperature</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+</code></pre></div><p>  函数上移</p> <div class="language-javascript extra-class"><pre class="language-javascript"><code><span class="token keyword">class</span> <span class="token class-name">Employee</span><span class="token punctuation">{</span><span class="token operator">...</span><span class="token punctuation">}</span>
+
+<span class="token keyword">class</span> <span class="token class-name">Salesman</span> <span class="token keyword">extends</span> <span class="token class-name">Employee</span><span class="token punctuation">{</span>
+  <span class="token keyword">get</span> <span class="token function">name</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token operator">...</span><span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">class</span> <span class="token class-name">Engineer</span> <span class="token keyword">extends</span> <span class="token class-name">Employee</span><span class="token punctuation">{</span>
+  <span class="token keyword">get</span> <span class="token function">name</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token operator">...</span><span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// 优化</span>
+<span class="token keyword">class</span> <span class="token class-name">Employee</span><span class="token punctuation">{</span>
+  <span class="token keyword">get</span> <span class="token function">name</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token operator">...</span><span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">class</span> <span class="token class-name">Salesman</span> <span class="token keyword">extends</span> <span class="token class-name">Employee</span><span class="token punctuation">{</span><span class="token operator">...</span><span class="token punctuation">}</span>
+<span class="token keyword">class</span> <span class="token class-name">Engineer</span> <span class="token keyword">extends</span> <span class="token class-name">Employee</span><span class="token punctuation">{</span><span class="token operator">...</span><span class="token punctuation">}</span>
+</code></pre></div><p>  避免重复代码是很重要的。重复的两个函数现在也许能够正常工作， 但假以时日却只会成为滋生 bug 的温床。无论何时，只要系统内出现重复，你就会面临“修改其中一个却未能修改另一个”的风险。通常，找出重复也有一定的难度。</p> <p>  如果各个子类是分别开发的，或者是在重构过程中组合起来的，你常会发现他们拥有重复特性，特别是字段更容易重复。判断若干字段是否重复，唯一的办法就是观察函数如何使用它们。</p> <p>  以子类取代类型码。</p> <div class="language-javascript extra-class"><pre class="language-javascript"><code><span class="token keyword">function</span> <span class="token function">createEmployee</span><span class="token punctuation">(</span><span class="token parameter">name<span class="token punctuation">,</span> type</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">Employee</span><span class="token punctuation">(</span>name<span class="token punctuation">,</span> type<span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">//</span>
+<span class="token keyword">function</span> <span class="token function">createEmployee</span><span class="token punctuation">(</span><span class="token parameter">name<span class="token punctuation">,</span> type</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">switch</span> <span class="token punctuation">(</span>type<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">case</span> <span class="token string">'engineer'</span><span class="token operator">:</span>
+      <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">Engineer</span><span class="token punctuation">(</span>name<span class="token punctuation">)</span>
+    <span class="token keyword">case</span> <span class="token string">'salesman'</span><span class="token operator">:</span>
+      <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">Salesman</span><span class="token punctuation">(</span>name<span class="token punctuation">)</span>
+    <span class="token keyword">case</span> <span class="token string">'manager'</span><span class="token operator">:</span>
+      <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">Manager</span><span class="token punctuation">(</span>name<span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>  软件系统经常需要表现“相似但又不同的东西”，表现分类关系的第一种工具是类型码字段。大多时候，有这样的类型码就够了。但也有时候，我可以再多往前一步，引入子类。继承有两个诱人之处。首先，你可以用多态来处理条件逻辑。如果有几个函数都在根据类型码的取值采取不同的行为，多态就显得特别有用。</p></div> <footer class="page-edit"><!----> <!----></footer> <!----> </main></div><div class="global-ui"></div></div>
+    <script src="/alblog/assets/js/app.355d6781.js" defer></script><script src="/alblog/assets/js/2.03ebf054.js" defer></script><script src="/alblog/assets/js/59.e7885dba.js" defer></script>
+  </body>
+</html>

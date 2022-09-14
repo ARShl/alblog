@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>我们一起搞懂回溯 | al的前端小屋</title>
+    <meta name="generator" content="VuePress 1.9.7">
+    <link rel="icon" href="/alblog/icon.jpg">
+    <meta name="description" content="">
+    
+    <link rel="preload" href="/alblog/assets/css/0.styles.d50160af.css" as="style"><link rel="preload" href="/alblog/assets/js/app.355d6781.js" as="script"><link rel="preload" href="/alblog/assets/js/2.03ebf054.js" as="script"><link rel="preload" href="/alblog/assets/js/14.245b83a2.js" as="script"><link rel="prefetch" href="/alblog/assets/js/10.8d6ed693.js"><link rel="prefetch" href="/alblog/assets/js/11.c66ee40e.js"><link rel="prefetch" href="/alblog/assets/js/12.41c7cae7.js"><link rel="prefetch" href="/alblog/assets/js/13.63391230.js"><link rel="prefetch" href="/alblog/assets/js/15.d752e834.js"><link rel="prefetch" href="/alblog/assets/js/16.2d1a88a9.js"><link rel="prefetch" href="/alblog/assets/js/17.945999d5.js"><link rel="prefetch" href="/alblog/assets/js/18.5d76070c.js"><link rel="prefetch" href="/alblog/assets/js/19.7954c504.js"><link rel="prefetch" href="/alblog/assets/js/20.43324720.js"><link rel="prefetch" href="/alblog/assets/js/21.6f8de43d.js"><link rel="prefetch" href="/alblog/assets/js/22.590f25c8.js"><link rel="prefetch" href="/alblog/assets/js/23.f6867e03.js"><link rel="prefetch" href="/alblog/assets/js/24.9e02e7c8.js"><link rel="prefetch" href="/alblog/assets/js/25.23cf3a4d.js"><link rel="prefetch" href="/alblog/assets/js/26.00523e95.js"><link rel="prefetch" href="/alblog/assets/js/27.476f4fe2.js"><link rel="prefetch" href="/alblog/assets/js/28.cd9806ee.js"><link rel="prefetch" href="/alblog/assets/js/29.389da35f.js"><link rel="prefetch" href="/alblog/assets/js/3.dd5c7757.js"><link rel="prefetch" href="/alblog/assets/js/30.0eb158f4.js"><link rel="prefetch" href="/alblog/assets/js/31.ddc0ff42.js"><link rel="prefetch" href="/alblog/assets/js/32.da0b4c0b.js"><link rel="prefetch" href="/alblog/assets/js/33.610f5551.js"><link rel="prefetch" href="/alblog/assets/js/34.d50062e1.js"><link rel="prefetch" href="/alblog/assets/js/35.dd8c2412.js"><link rel="prefetch" href="/alblog/assets/js/36.082f3f29.js"><link rel="prefetch" href="/alblog/assets/js/37.52c5eeeb.js"><link rel="prefetch" href="/alblog/assets/js/38.7633100f.js"><link rel="prefetch" href="/alblog/assets/js/39.617e8325.js"><link rel="prefetch" href="/alblog/assets/js/4.2d2288ad.js"><link rel="prefetch" href="/alblog/assets/js/40.e211bab6.js"><link rel="prefetch" href="/alblog/assets/js/41.36460a4d.js"><link rel="prefetch" href="/alblog/assets/js/42.2fbc3df5.js"><link rel="prefetch" href="/alblog/assets/js/43.7d8d97ba.js"><link rel="prefetch" href="/alblog/assets/js/44.7803b38d.js"><link rel="prefetch" href="/alblog/assets/js/45.526ae1d4.js"><link rel="prefetch" href="/alblog/assets/js/46.418e487f.js"><link rel="prefetch" href="/alblog/assets/js/47.c98cb0c6.js"><link rel="prefetch" href="/alblog/assets/js/48.d3727d20.js"><link rel="prefetch" href="/alblog/assets/js/49.1e76f936.js"><link rel="prefetch" href="/alblog/assets/js/5.d223beea.js"><link rel="prefetch" href="/alblog/assets/js/50.dc3bac3d.js"><link rel="prefetch" href="/alblog/assets/js/51.04ff565a.js"><link rel="prefetch" href="/alblog/assets/js/52.4734d0db.js"><link rel="prefetch" href="/alblog/assets/js/53.9c3e1433.js"><link rel="prefetch" href="/alblog/assets/js/54.77f7978d.js"><link rel="prefetch" href="/alblog/assets/js/55.b23fbe90.js"><link rel="prefetch" href="/alblog/assets/js/56.ca6018fa.js"><link rel="prefetch" href="/alblog/assets/js/57.9e636874.js"><link rel="prefetch" href="/alblog/assets/js/58.2715a001.js"><link rel="prefetch" href="/alblog/assets/js/59.e7885dba.js"><link rel="prefetch" href="/alblog/assets/js/6.35d0bb7f.js"><link rel="prefetch" href="/alblog/assets/js/60.45fd82d3.js"><link rel="prefetch" href="/alblog/assets/js/61.cc0ec143.js"><link rel="prefetch" href="/alblog/assets/js/62.dbedffd7.js"><link rel="prefetch" href="/alblog/assets/js/63.c818127c.js"><link rel="prefetch" href="/alblog/assets/js/64.7d6873dd.js"><link rel="prefetch" href="/alblog/assets/js/65.e48edac3.js"><link rel="prefetch" href="/alblog/assets/js/66.40655f8c.js"><link rel="prefetch" href="/alblog/assets/js/67.c89911f3.js"><link rel="prefetch" href="/alblog/assets/js/68.e2c92813.js"><link rel="prefetch" href="/alblog/assets/js/69.6720353b.js"><link rel="prefetch" href="/alblog/assets/js/7.590c5b12.js"><link rel="prefetch" href="/alblog/assets/js/70.fcd9a8cb.js"><link rel="prefetch" href="/alblog/assets/js/71.c5a43540.js"><link rel="prefetch" href="/alblog/assets/js/72.e08743bb.js"><link rel="prefetch" href="/alblog/assets/js/73.f6cb8cc8.js"><link rel="prefetch" href="/alblog/assets/js/74.7e237eaa.js"><link rel="prefetch" href="/alblog/assets/js/75.e382272e.js"><link rel="prefetch" href="/alblog/assets/js/76.ab365521.js"><link rel="prefetch" href="/alblog/assets/js/77.2ded31f6.js"><link rel="prefetch" href="/alblog/assets/js/78.d82c8ccc.js"><link rel="prefetch" href="/alblog/assets/js/79.129e07fe.js"><link rel="prefetch" href="/alblog/assets/js/8.4a2cf3cb.js"><link rel="prefetch" href="/alblog/assets/js/80.4a461777.js"><link rel="prefetch" href="/alblog/assets/js/81.51401110.js"><link rel="prefetch" href="/alblog/assets/js/82.b4fdcbc1.js"><link rel="prefetch" href="/alblog/assets/js/9.24de0554.js">
+    <link rel="stylesheet" href="/alblog/assets/css/0.styles.d50160af.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/alblog/" class="home-link router-link-active"><!----> <span class="site-name">al的前端小屋</span></a> <div class="links"><!----> <nav class="nav-links can-hide"><div class="nav-item"><a href="/alblog/" class="nav-link">
+  Home
+</a></div><div class="nav-item"><a href="/alblog/read/" class="nav-link">
+  读书
+</a></div><div class="nav-item"><a href="/alblog/algorithm/" class="nav-link router-link-active">
+  算法
+</a></div><div class="nav-item"><a href="/alblog/skill/" class="nav-link">
+  技术
+</a></div><div class="nav-item"><a href="/alblog/vue/" class="nav-link">
+  Vue.js
+</a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/alblog/" class="nav-link">
+  Home
+</a></div><div class="nav-item"><a href="/alblog/read/" class="nav-link">
+  读书
+</a></div><div class="nav-item"><a href="/alblog/algorithm/" class="nav-link router-link-active">
+  算法
+</a></div><div class="nav-item"><a href="/alblog/skill/" class="nav-link">
+  技术
+</a></div><div class="nav-item"><a href="/alblog/vue/" class="nav-link">
+  Vue.js
+</a></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>数据结构与算法详解</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/alblog/algorithm/yibu/1.html" class="sidebar-link">数据结构与算法详解1</a></li><li><a href="/alblog/algorithm/yibu/2.html" class="sidebar-link">数据结构与算法详解2</a></li></ul></section></li><li><a href="/alblog/algorithm/backtracking.html" aria-current="page" class="active sidebar-link">让我们一起搞懂回溯吧！</a></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="我们一起搞懂回溯"><a href="#我们一起搞懂回溯" class="header-anchor">#</a> 我们一起搞懂回溯</h1> <img src="/alblog/assets/img/1.8f0c5278.png"> <hr> <p>  其实回溯算法中很关键的一个问题是递归。我们都知道递归，也看得懂递归，但有的时候在实际操作过程中却不知道怎么使用，有时候还会被搞晕。那我们就先来搞清楚递归。首先我们写递归，首先要明白函数要做什么。第二我们要找到递归结束的条件。第三我们就是要找到函数的等价关系式。也就是我们要不断的缩小参数的范围。缩小后，我们通过辅助变量或者操作，将原函数的结果保存。递归中最难的就是找到函数的等价关系式。我们通过多接触几道题，然后熟悉起来。</p> <div class="language-javascript extra-class"><pre class="language-javascript"><code><span class="token comment">// https://leetcode.cn/problems/unique-paths/</span>
+<span class="token comment">/**
+ * @param {number} m
+ * @param {number} n
+ * @return {number}
+ */</span>
+<span class="token keyword">var</span> <span class="token function-variable function">uniquePaths</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">m<span class="token punctuation">,</span> n</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">let</span> arr <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Array</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+  <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> m<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    arr<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Array</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> j <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> j <span class="token operator">&lt;</span> n<span class="token punctuation">;</span> j<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      arr<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">0</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+  <span class="token keyword">var</span> <span class="token function-variable function">dfs</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">i<span class="token punctuation">,</span> j</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>i <span class="token operator">==</span> m <span class="token operator">-</span> <span class="token number">1</span> <span class="token operator">||</span> j <span class="token operator">==</span> n <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">return</span> <span class="token number">1</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>arr<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">return</span> arr<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span>
+    <span class="token punctuation">}</span>
+    arr<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">dfs</span><span class="token punctuation">(</span>i <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">,</span> j<span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token function">dfs</span><span class="token punctuation">(</span>i<span class="token punctuation">,</span> j <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span>
+    <span class="token keyword">return</span> arr<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token keyword">return</span> <span class="token function">dfs</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">function</span> <span class="token function">test</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'res'</span><span class="token punctuation">,</span> <span class="token function">uniquePaths</span><span class="token punctuation">(</span><span class="token number">7</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>我们先从最简单的方法来，一步一步理解递归。举例，对于一个 1+2+3+...+100 的程序怎么写。</p> <div class="language-javascript extra-class"><pre class="language-javascript"><code><span class="token comment">// 如果for循环来写</span>
+<span class="token keyword">let</span> sum <span class="token operator">=</span> <span class="token number">0</span>
+<span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> <span class="token number">101</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  sum <span class="token operator">+=</span> i
+<span class="token punctuation">}</span>
+<span class="token keyword">return</span> sum
+
+<span class="token comment">// 递归写法</span>
+
+<span class="token keyword">var</span> <span class="token function-variable function">f</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">n</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>n <span class="token operator">==</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token number">1</span>
+  <span class="token punctuation">}</span>
+  <span class="token keyword">return</span> n <span class="token operator">+</span> <span class="token function">f</span><span class="token punctuation">(</span>n <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// 数组内和的相加。</span>
+<span class="token keyword">var</span> <span class="token function-variable function">f</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">arr</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>arr<span class="token punctuation">.</span>length <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token number">0</span>
+  <span class="token punctuation">}</span>
+  <span class="token keyword">return</span> arr<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">+</span> <span class="token function">f</span><span class="token punctuation">(</span>arr<span class="token punctuation">.</span><span class="token function">slice</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">//非递归写法</span>
+
+<span class="token keyword">var</span> <span class="token function-variable function">f</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">arr</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">let</span> n <span class="token operator">=</span> arr<span class="token punctuation">.</span>length
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>n <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token number">0</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token keyword">let</span> res <span class="token operator">=</span> <span class="token number">0</span>
+  <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> n<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    res <span class="token operator">+=</span> arr<span class="token punctuation">[</span>i<span class="token punctuation">]</span>
+  <span class="token punctuation">}</span>
+  <span class="token keyword">return</span> res
+<span class="token punctuation">}</span>
+</code></pre></div><p>如果按照一个已经写好的递归函数去尝试理解递归的工作原理的话，会比较头痛，但首先我们先画一张图来展示递归过程发生了什么。</p> <div class="language-javascript extra-class"><pre class="language-javascript"><code><span class="token function">f</span><span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span>                <span class="token number">15</span>
+  <span class="token number">5</span><span class="token operator">+</span><span class="token function">f</span><span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">)</span>            <span class="token number">5</span><span class="token operator">+</span><span class="token number">4</span><span class="token operator">+</span><span class="token number">3</span><span class="token operator">+</span><span class="token number">2</span><span class="token operator">+</span><span class="token number">1</span><span class="token operator">=</span><span class="token number">15</span>
+    <span class="token number">4</span><span class="token operator">+</span><span class="token function">f</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span>          <span class="token number">4</span><span class="token operator">+</span><span class="token number">3</span><span class="token operator">+</span><span class="token number">2</span><span class="token operator">+</span><span class="token number">1</span>
+      <span class="token number">3</span><span class="token operator">+</span><span class="token function">f</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span>        <span class="token number">3</span><span class="token operator">+</span><span class="token number">2</span><span class="token operator">+</span><span class="token number">1</span>
+        <span class="token number">2</span><span class="token operator">+</span><span class="token function">f</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>      <span class="token number">2</span><span class="token operator">+</span><span class="token number">1</span>
+          <span class="token number">1</span>         <span class="token number">1</span>
+</code></pre></div><p>我们在写一个简单的递归常见算法。阶乘问题。</p> <div class="language-javascript extra-class"><pre class="language-javascript"><code><span class="token keyword">var</span> <span class="token function-variable function">f</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">n</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>n <span class="token operator">==</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token number">1</span>
+  <span class="token punctuation">}</span>
+  <span class="token keyword">return</span> n <span class="token operator">*</span> <span class="token function">f</span><span class="token punctuation">(</span>n <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">//假如你已经开始混乱的时候。我们可以拿一个不用递归的写法</span>
+
+<span class="token keyword">var</span> <span class="token function-variable function">f</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">n</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">let</span> r <span class="token operator">=</span> n
+  <span class="token keyword">while</span> <span class="token punctuation">(</span>n <span class="token operator">&gt;=</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    n <span class="token operator">=</span> n <span class="token operator">-</span> <span class="token number">1</span>
+    r <span class="token operator">*=</span> n
+  <span class="token punctuation">}</span>
+  <span class="token keyword">return</span> n
+<span class="token punctuation">}</span>
+
+<span class="token comment">// 斐波那契 1,1,2,3,5,8</span>
+<span class="token keyword">var</span> <span class="token function-variable function">f</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">n</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">var</span> <span class="token function-variable function">cf</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">first<span class="token punctuation">,</span> second<span class="token punctuation">,</span> n</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>n <span class="token operator">&gt;</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">if</span> <span class="token punctuation">(</span>n <span class="token operator">==</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> first
+      <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>n <span class="token operator">==</span> <span class="token number">2</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> second
+      <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>n <span class="token operator">==</span> <span class="token number">3</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> first <span class="token operator">+</span> second
+      <span class="token punctuation">}</span>
+      <span class="token keyword">return</span> <span class="token function">cf</span><span class="token punctuation">(</span>second<span class="token punctuation">,</span> first <span class="token operator">+</span> second<span class="token punctuation">,</span> n <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">return</span> <span class="token operator">-</span><span class="token number">1</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token function">cf</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> n<span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// 不用递归</span>
+<span class="token keyword">var</span> <span class="token function-variable function">f</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">n</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>n <span class="token operator">==</span> <span class="token number">1</span> <span class="token operator">||</span> n <span class="token operator">==</span> <span class="token number">2</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token number">1</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token keyword">let</span> result <span class="token operator">=</span> <span class="token operator">-</span><span class="token number">1</span>
+  <span class="token keyword">let</span> first <span class="token operator">=</span> <span class="token number">1</span>
+  <span class="token keyword">let</span> second <span class="token operator">=</span> <span class="token number">1</span>
+  <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token operator">=</span> <span class="token number">3</span><span class="token punctuation">;</span> i <span class="token operator">&lt;=</span> n<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    result <span class="token operator">=</span> first <span class="token operator">+</span> second
+    first <span class="token operator">=</span> second
+    second <span class="token operator">=</span> result
+  <span class="token punctuation">}</span>
+  <span class="token keyword">return</span> result
+<span class="token punctuation">}</span>
+</code></pre></div><p>差不多理解了吧。所以假如我们把这个当作公式的话。我们就记住三点。找出结束的条件，找出方法的用处，找出如何缩小范围。</p></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/alblog/algorithm/yibu/2.html" class="prev">
+        数据结构与算法详解2
+      </a></span> <!----></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/alblog/assets/js/app.355d6781.js" defer></script><script src="/alblog/assets/js/2.03ebf054.js" defer></script><script src="/alblog/assets/js/14.245b83a2.js" defer></script>
+  </body>
+</html>
